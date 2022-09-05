@@ -39,6 +39,7 @@ const Sidebar: NextPage = () => {
 				overflowX={'scroll'}
 				flexDir={'column'}
 				sx={{ scrollbarWidth: 'none' }}
+				flex={1}
 			>
 				<ChatItem />
 			</Flex>
