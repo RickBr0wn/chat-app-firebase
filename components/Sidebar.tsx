@@ -1,11 +1,14 @@
 import { ArrowLeftIcon } from '@chakra-ui/icons'
 import { Avatar, Button, Flex, IconButton, Text } from '@chakra-ui/react'
+import { signOut } from 'firebase/auth'
 import { NextPage } from 'next'
+import { auth } from '../firebase.config'
 import ChatItem from './ChatItem'
 
 const Sidebar: NextPage = () => {
 	return (
 		<Flex
+			h={'100%'}
 			w={'300px'}
 			borderEnd={'1px solid'}
 			borderColor={'gray.200'}
@@ -30,6 +33,7 @@ const Sidebar: NextPage = () => {
 					isRound
 					icon={<ArrowLeftIcon />}
 					aria-label={''}
+					onClick={() => signOut(auth)}
 				/>
 			</Flex>
 			<Button m={5} p={4}>
