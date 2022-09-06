@@ -2,10 +2,13 @@ import { ArrowLeftIcon } from '@chakra-ui/icons'
 import { Avatar, Button, Flex, IconButton, Text } from '@chakra-ui/react'
 import { signOut } from 'firebase/auth'
 import { NextPage } from 'next'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase.config'
 import ChatItem from './ChatItem'
 
 const Sidebar: NextPage = () => {
+	const [user] = useAuthState(auth)
+
 	return (
 		<Flex
 			h={'100%'}
@@ -24,8 +27,8 @@ const Sidebar: NextPage = () => {
 				borderColor={'gray.200'}
 			>
 				<Flex align={'center'}>
-					<Avatar src='' marginEnd={3} />
-					<Text>Albert Einstien</Text>
+					<Avatar src={user?.photoURL || ''} marginEnd={3} />
+					<Text>{user?.displayName}</Text>
 				</Flex>
 
 				<IconButton
