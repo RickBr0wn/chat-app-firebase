@@ -8,6 +8,7 @@ import {
 	Text
 } from '@chakra-ui/react'
 import { NextPage } from 'next'
+import Head from 'next/head'
 import Sidebar from '../../components/Sidebar'
 
 export const Top: NextPage = () => {
@@ -77,14 +78,20 @@ export const Middle: NextPage = () => {
 
 const Chat: NextPage = () => {
 	return (
-		<Flex h={'100vh'}>
-			<Sidebar />
-			<Flex flex={1} direction='column'>
-				<Top />
-				<Middle />
-				<Bottom />
+		<>
+			<Head>
+				<title>Chat-App</title>
+			</Head>
+
+			<Flex h={'100vh'}>
+				<Sidebar />
+				<Flex flex={1} direction='column'>
+					<Top />
+					<Middle />
+					<Bottom />
+				</Flex>
 			</Flex>
-		</Flex>
+		</>
 	)
 }
 
